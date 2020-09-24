@@ -1,0 +1,43 @@
+{
+    "name": "knowYourIP-NodeJs",
+    "version": "0.0.1",
+    "description": "How to know your Local IP address using NodeJs",
+    "author": "Debadatta Mishra",
+    "main": "lib/Test.js",
+    "types": "lib/index.d.ts",
+    "license": "UNLICENSED",
+    "scripts": {
+        "test": "jest --config jestconfig.json",
+        "build": "rimraf lib && tsc",
+        "build:watch": "tsc -w",
+        "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+        "lint": "tslint -p tsconfig.json",
+        "prepublishOnly": "npm test && npm run lint",
+        "preversion": "npm run lint",
+        "version": "npm run format && git add -A src",
+        "postversion": "git push && git push --tags",
+        "start": "node ./lib/Test.js"
+    },
+    "dependencies": {
+        "dtslint": "^3.3.0",
+        "@types/node": "^13.7.7",
+        "winston": "^2.4.0",
+        "ping": "^0.2.3",
+        "@types/ping": "^0.2.0",
+		"ip": "^1.1.5",
+        "@types/ip": "^1.1.0",
+        "netmask": "^1.0.6",
+        "ip-range-check": "^0.2.0"
+    },
+    "devDependencies": {
+        "prettier": "^1.13.2",
+        "tslint": "^5.10.0",
+        "tslint-config-prettier": "^1.13.0",
+        "typescript": "^3.8.3",
+        "rimraf": "^3.0.2",
+        "performance-now": "^2.1.0"
+    },
+    "files": [
+        "lib/**/*"
+    ]
+}
